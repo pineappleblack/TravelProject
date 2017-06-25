@@ -6,6 +6,7 @@
       "x": 0,
       "y": 0,
       "size": 2
+	  "color": #fff;
     },
     {
       "id": "n1",
@@ -32,6 +33,7 @@
       "id": "e1",
       "source": "n1",
       "target": "n2"
+	  "color": #ff0;
     },
     {
       "id": "e2",
