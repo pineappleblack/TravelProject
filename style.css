@@ -11,6 +11,11 @@ html {
 p {
 	margin-bottom: 20px;
 }
+
+hr {
+	width: 70%;
+	margin: auto;
+}
  
  #container {
     width: 100%;
@@ -34,20 +39,32 @@ p {
 } 
   
  .block {
-	padding: 40px 10%;
+	padding: 20px 10%;
  }
   
  .lead{ 
-	padding: 40px 15%;
+	padding: 10px 15%;
 	font-size: 21px;
 	font-weight: bold;
 } 
   
 .special {
-	background-color: blue;
+	background-color: #5c7ab1;
 	color: #fff;
  }
  
  .title {
 	text-align: center;
+	line-height: 300px;
+	font-family: 'PT Sans', sans-serif;
+	font-size: 40px;
+	display: block;
+	background-image: url(head.png);
+	height: 300px;
+	color: #fff;
+ }
+ 
+ .zag {
+	font-family: 'PT Sans', sans-serif;
+	font-size: 20px;
  }
