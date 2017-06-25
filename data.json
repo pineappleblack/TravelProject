@@ -1,26 +1,33 @@
-{
+﻿{
   "nodes": [
     {
       "id": "n0",
-      "label": "A node",
-      "x": 0,
-      "y": 0,
+      "label": "Москва",
+      "x": 4.598,
+      "y": 10,
       "size": 2,
-	  "color": "#0ff"
+	  "caption": "Цена номера: от 5000 рублей за ночь"
     },
     {
       "id": "n1",
-      "label": "Another node",
+      "label": "Воронеж",
       "x": 3,
       "y": 1,
       "size": 2
     },
     {
       "id": "n2",
-      "label": "And a last one",
+      "label": "Санкт-Петербург",
       "x": 1,
       "y": 3,
       "size": 1
+    },	
+	{
+      "id": "n3",
+      "label": "Казань",
+      "x": 3,
+      "y": 3,
+      "size": 2
     }
   ],
   "edges": [
@@ -28,17 +35,22 @@
       "id": "e0",
       "source": "n0",
       "target": "n1",
-	  "color": "#ff0"
+	  "color": "#ff0",
+	  "caption": "Время перелёта: 90 минут <br> Стоимость перелёта: 5000 рублей",
+	  "size": 10
     },
     {
       "id": "e1",
       "source": "n1",
-      "target": "n2"
+      "target": "n2",
+	  "caption": "Время перелёта: 120 минут <br> Стоимость перелёта: 5000 рублей",
+	  "size": 10
     },
     {
       "id": "e2",
       "source": "n2",
-      "target": "n0"
+      "target": "n0",
+	  "size": 10
     }
   ]
 }

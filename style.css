@@ -1,0 +1,19 @@
+ #container {
+    max-width: 1000px;
+    height: 500px;
+    margin: auto;
+  }
+ 
+.info {
+	display: none;
+	border: 1px solid black;
+	border-radius: 10px;
+	font-size: 12px;
+	width: 150px;
+	padding: 20px;
+	background: #fff;
+} 
+  
+  .block1 {
+	padding: 40px;
+  }

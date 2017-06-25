@@ -1,37 +1,90 @@
 <html>
 <head>
-<meta charset="UTF-8">
-<style type="text/css">
-  #container {
-    max-width: 1000px;
-    height: 500px;
-    margin: auto;
-  }
-  .block1 {
-	padding: 40px;
-  }
-</style>
+	<meta charset="UTF-8">
+	<link href="style.css" rel="stylesheet">
+	
+	<script src="js/sigmajs/sigma.min.js"></script>
+	<script src="js/sigmajs/plugins/sigma.parsers.json.min.js"></script>
+	<script src="js/sigmajs/plugins/sigma.renderers.edgeLabels.min.js"></script>
+	<script src="js/jquery.min.js"></script>
+
 </head>
+
 <body>
-<div id="container"></div>
-<script src="sigmajs/sigma.min.js"></script>
-<script src="sigmajs/plugins/sigma.parsers.json.min.js"></script>
-<script>
-  sigma.parsers.json('data.json', {
-    container: 'container',
-    settings: {
-      defaultNodeColor: '#ec5148'
-    }
-  });
-</script>
-<div class = "block1"> Здесь будет много текста. Просто потому, что я умею писать текст. Ничего лишнего. Просто кот. Кот, который лежит у тебя на коленках и мяукает, да</div>
+
+	<div id="container"></div>
+
+	<div class = "block1"> Здесь будет много текста. Просто потому, что я умею писать текст. Ничего лишнего. Просто кот. Кот, который лежит у тебя на коленках и мяукает, да</div>
+	<div class="info">Some text</div>
+
+		
+	<script>
+	  var graph = new sigma({
+			renderer: {                                                        
+				container: "container",                                        
+				type: "canvas"                                                 
+			},
+			settings: {
+				defaultNodeColor: '#ec5148',
+				edgeLabelSize: 'proportional',
+				enableEdgeHovering: true
+			}
+		});
+	  
+	  sigma.parsers.json(
+			'data.json',
+			graph,
+			function() {
+				graph.refresh();
+			}
+		);
+	  
+		sigma.canvas.nodes.square = function(node, context, settings) {
+			var prefix = settings('prefix') || '',
+			size = node[prefix + 'size'];
+
+			context.fillStyle = node.color || settings('defaultNodeColor');
+			context.beginPath();
+			context.rect(
+				node[prefix + 'x'] - size,
+				node[prefix + 'y'] - size,
+				size * 2,
+				size * 2
+			);
+
+			context.closePath();
+			context.fill();
+		};
+	  
+		var lastEdge;	  
+		graph.bind('overEdge', function(e) {
+			if (e.data.edge['id']!=lastEdge) {
+				if (e.data.edge['caption']!=undefined)
+					$('.info').html(e.data.edge['caption']);
+				else 
+					$('.info').html("Нет данных о пути");
+				$(".info").offset({top:e.data.captor['clientY']+20, left:e.data.captor['clientX']+20});
+				$(".info").css("display", "block");
+				console.log("Прив");
+				lastEdge = e.data.edge['id'];
+				lastNode = undefined;
+			}			
+		});
+		
+	  var lastNode;
+	  graph.bind('overNode', function(e) {
+			if (e.data.node['id']!=lastNode) {
+				if (e.data.node['caption']!=undefined)
+					$('.info').html(e.data.node['caption']);
+				else 
+					$('.info').html("Нет данных об отелях");
+				$(".info").offset({top:e.data.captor['clientY']+20, left:e.data.captor['clientX']+20});
+				$(".info").css("display", "block");
+				lastNode = e.data.node['id'];
+				lastEdge = undefined;
+			}
+		});
+	  
+	</script>			
 </body>
 </html>
-
-<!--
- Понять:
-	размер точки -- легко;
-	цвет точки --
-	цвет реба -- 
-	размер ребра -- через координаты, возникают вопросы.
--->
