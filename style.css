@@ -74,6 +74,11 @@ hr {
 	color: #fff;
  }
  
+ .title-descr {
+	display: block;
+	font-size: 15px;
+ }
+ 
  .zag {
 	font-family: 'PT Sans', sans-serif;
 	font-size: 20px;
