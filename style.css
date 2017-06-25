@@ -41,6 +41,12 @@ hr {
  .block {
 	padding: 20px 10%;
  }
+ 
+.block  img{
+	width: 80%;
+	margin: 20px auto;
+	display: block;
+ }
   
  .lead{ 
 	padding: 10px 15%;
@@ -53,13 +59,17 @@ hr {
 	color: #fff;
  }
  
+ .special a {
+	color: #fff;
+ }
+ 
  .title {
 	text-align: center;
 	line-height: 300px;
 	font-family: 'PT Sans', sans-serif;
 	font-size: 40px;
 	display: block;
-	background-image: url(head.png);
+	background-image: url(img/head.png);
 	height: 300px;
 	color: #fff;
  }
@@ -68,3 +78,17 @@ hr {
 	font-family: 'PT Sans', sans-serif;
 	font-size: 20px;
  }
+ 
+.author {
+	display: inline-block;
+	width: 25%;
+}
+
+.author  img {
+	width: 90%;
+	margin: 0;
+}
+
+.authors{
+	margin: auto;
+}
