@@ -44,7 +44,6 @@
 				$('.info').html("Нет данных о пути");
 			$(".info").offset({top:e.data.captor['clientY']+20, left:e.data.captor['clientX']+20});
 			$(".info").css("display", "block");
-			console.log("Прив");
 			lastEdge = e.data.edge['id'];
 			lastNode = undefined;
 		}			
